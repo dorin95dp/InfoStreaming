@@ -18,23 +18,36 @@ public class SampleServer extends Thread {
     }
 
     public void run() {
-        try {
-            server = serverSocket.accept();
 
-            while (!server.isClosed()) {
-                ImageIO.write(ScreenShotMaker.getINSTANCE().makeScreenShot().getImage(), "JPG", server.getOutputStream());
-                try {
-                    Thread.sleep(10);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-                server.getOutputStream().flush();
+        boolean isStopped = false;
+
+        while (!isStopped) {
+            try {
+                server = serverSocket.accept();
+                handleConnection(server);
+            } catch (IOException e) {
+                e.printStackTrace();
             }
-
-        } catch (IOException e) {
-            e.printStackTrace();
         }
+    }
 
+    private void handleConnection(Socket server) {
+        new Thread(() -> {
+            try {
+                while (!server.isClosed()) {
+                    ImageIO.write(ScreenShotMaker.getINSTANCE().makeScreenShot().getImage(), "JPG", server.getOutputStream());
+                    try {
+                        Thread.sleep(10);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                    server.getOutputStream().flush();
+                }
+
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }).start();
     }
 
     public static void main(String [] args) throws Exception {

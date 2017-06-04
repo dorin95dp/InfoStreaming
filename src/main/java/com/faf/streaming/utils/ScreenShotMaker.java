@@ -1,8 +1,5 @@
 package com.faf.streaming.utils;
 
-
-import sun.util.BuddhistCalendar;
-
 import java.awt.*;
 import java.awt.image.BufferedImage;
 
