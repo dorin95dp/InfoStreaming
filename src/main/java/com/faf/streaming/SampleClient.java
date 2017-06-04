@@ -1,28 +1,25 @@
+package com.faf.streaming;
+
+import com.faf.streaming.utils.ScreenShotMaker;
+
 import javax.imageio.ImageIO;
-import java.awt.*;
-import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.net.Socket;
 
 public class SampleClient extends Thread {
 
-    private BufferedImage bimg;
     private Socket client;
-    private Robot screenShotMaker;
     private static final String serverName = "localhost";
-    
+
     @Override
     public void run() {
-        int port = 6066;
-        try {
+        int port = 6789;
 
+        try {
             client = new Socket(serverName, port);
-            screenShotMaker = new Robot();
 
             while (!client.isClosed()) {
-                bimg = screenShotMaker.createScreenCapture(new Rectangle(Toolkit.getDefaultToolkit().getScreenSize()));
-                ImageIO.write(bimg, "JPG", client.getOutputStream());
-
+                ImageIO.write(ScreenShotMaker.getINSTANCE().makeScreenShot().getImage(), "JPG", client.getOutputStream());
                 try {
                     Thread.sleep(10);
                 } catch (InterruptedException e) {
@@ -32,7 +29,7 @@ public class SampleClient extends Thread {
             }
 
             client.close();
-        } catch(IOException | AWTException e) {
+        } catch(IOException e) {
             e.printStackTrace();
         }
     }
