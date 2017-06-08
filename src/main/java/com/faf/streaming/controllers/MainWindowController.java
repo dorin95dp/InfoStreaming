@@ -1,18 +1,37 @@
 package com.faf.streaming.controllers;
 
+import com.faf.streaming.utils.MessageSender;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
+import javafx.scene.control.ListView;
+import javafx.scene.control.TextArea;
+import javafx.scene.input.KeyEvent;
 
 public class MainWindowController {
 
     @FXML
-    public Label lbStatus;
+    public ListView chatView;
 
-    Image img = new Image("file:flower.jpg");
+    private String userInput;
+
+    private ObservableList<String> chatHistory = FXCollections.observableArrayList ();
 
     @FXML
-    ImageView boxImage = new ImageView(img);
+    public Label lbStatus;
+
+    @FXML
+    TextArea chat;
+
+
+    public void checkUserInput(KeyEvent event) {
+        if (event.getCode().toString().equals("ENTER")) {
+            userInput = chat.getText();
+            chat.clear();
+            chatHistory.add(userInput);
+            MessageSender.sendMessage(userInput, 1234);
+        }
+    }
 
 }

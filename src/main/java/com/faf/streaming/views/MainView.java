@@ -5,11 +5,12 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.ListView;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 
-public class MainView extends Application {
 
+public class MainView extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
@@ -19,8 +20,9 @@ public class MainView extends Application {
         primaryStage.setTitle("Main window");
         primaryStage.setScene(scene);
         primaryStage.show();
+        ListView listView = (ListView) scene.lookup("#chatView") ;
 
-        SampleClient sampleClient = new SampleClient((ImageView) scene.lookup("#boxImage"));
+        SampleClient sampleClient = new SampleClient((ImageView) scene.lookup("#boxImage"), listView);
         sampleClient.start();
 
     }

@@ -1,5 +1,8 @@
 package com.faf.streaming;
 
+import com.faf.streaming.domain.Message;
+import com.faf.streaming.utils.MessageReceiver;
+import com.faf.streaming.utils.MessageSender;
 import com.faf.streaming.utils.ScreenShotMaker;
 
 import javax.imageio.ImageIO;
@@ -11,6 +14,7 @@ public class SampleServer extends Thread {
 
     private ServerSocket serverSocket;
     private Socket server;
+    MessageReceiver messageReceiver = new MessageReceiver(1234);
 
     public SampleServer(int port) throws Exception {
         serverSocket = new ServerSocket(port);
@@ -41,11 +45,24 @@ public class SampleServer extends Thread {
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
-                    server.getOutputStream().flush();
                 }
 
             } catch (IOException e) {
                 e.printStackTrace();
+            }
+        }).start();
+
+        new Thread(() -> {
+            while (!server.isClosed()){
+                try {
+                    server.getOutputStream().flush();
+                    String message = messageReceiver.receiveMessage();
+                    message = message.replace("\0", "");
+                    System.out.println(message);
+                    MessageSender.sendMessage(message, 1235);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
             }
         }).start();
     }

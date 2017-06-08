@@ -4,7 +4,6 @@ import com.faf.streaming.views.MainView;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
@@ -43,9 +42,6 @@ public class LoginController {
             e.printStackTrace();
         }
 
-//        Scene scene = new Scene(root);
-//        stage.setScene(scene);
-//        stage.show();
 
         MainView mainView = new MainView();
         try {
