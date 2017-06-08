@@ -9,9 +9,7 @@
     <children>
         <Label fx:id="lbStatus" layoutX="140.0" layoutY="62.0" text="Welcome user" textAlignment="CENTER" />
       <ImageView fx:id="boxImage" fitHeight="600.0" fitWidth="800.0" layoutX="0.0" layoutY="0.0" pickOnBounds="true" preserveRatio="true">
-          <image>
-              <Image url="flower.png"  />
-          </image>
+
       </ImageView>
     </children>
 </AnchorPane>

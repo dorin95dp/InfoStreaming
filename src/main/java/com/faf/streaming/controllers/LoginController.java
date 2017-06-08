@@ -1,5 +1,6 @@
 package com.faf.streaming.controllers;
 
+import com.faf.streaming.views.MainView;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -31,6 +32,8 @@ public class LoginController {
     }
 
     private void switchScene() {
+
+
         Stage stage = (Stage) id.getScene().getWindow();
         Parent root = null;
 
@@ -40,9 +43,16 @@ public class LoginController {
             e.printStackTrace();
         }
 
-        Scene scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
+//        Scene scene = new Scene(root);
+//        stage.setScene(scene);
+//        stage.show();
+
+        MainView mainView = new MainView();
+        try {
+            mainView.start(stage);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
 }
