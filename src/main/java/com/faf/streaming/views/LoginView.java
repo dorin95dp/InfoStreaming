@@ -2,7 +2,6 @@ package com.faf.streaming.views;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
-import javafx.fxml.JavaFXBuilderFactory;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
@@ -10,7 +9,7 @@ import javafx.stage.Stage;
 import javax.swing.*;
 import java.awt.image.BufferedImage;
 
-public class WindowView extends Application{
+public class LoginView extends Application{
     private JFrame window;
     private JLabel label;
     private final static int WIDTH = 422;
@@ -32,7 +31,7 @@ public class WindowView extends Application{
     }
 
     public static void main(String[] args) {
-        Application.launch(WindowView.class,args);
+        Application.launch(LoginView.class,args);
 
     }
 }
