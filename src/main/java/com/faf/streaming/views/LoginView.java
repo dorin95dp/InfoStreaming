@@ -6,14 +6,8 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-import javax.swing.*;
-import java.awt.image.BufferedImage;
 
 public class LoginView extends Application{
-
-    public void setImage(BufferedImage image) {
-
-    }
 
     @Override
     public void start(Stage primaryStage) throws Exception {

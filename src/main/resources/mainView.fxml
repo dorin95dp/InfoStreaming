@@ -4,7 +4,6 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<?import javafx.scene.image.Image?>
 <AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.faf.streaming.controllers.MainWindowController">
     <children>
         <Label fx:id="lbStatus" layoutX="140.0" layoutY="62.0" text="Welcome user" textAlignment="CENTER" />

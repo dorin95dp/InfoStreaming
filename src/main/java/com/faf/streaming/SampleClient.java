@@ -1,13 +1,9 @@
 package com.faf.streaming;
 
-import com.faf.streaming.controllers.MainWindowController;
 import com.faf.streaming.utils.ImageStreamReader;
-import com.faf.streaming.utils.OnImageReceivedListener;
-import com.faf.streaming.views.LoginView;
 import javafx.embed.swing.SwingFXUtils;
 import javafx.scene.image.ImageView;
 
-import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.net.Socket;
 
