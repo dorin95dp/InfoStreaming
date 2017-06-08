@@ -12,7 +12,7 @@ import java.awt.image.BufferedImage;
 public class LoginView extends Application{
 
     public void setImage(BufferedImage image) {
-//        label.setIcon(new ImageIcon(image));
+
     }
 
     @Override
@@ -25,6 +25,7 @@ public class LoginView extends Application{
     }
 
     public static void main(String[] args) {
+
         launch(args);
     }
 }
