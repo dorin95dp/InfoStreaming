@@ -2,10 +2,9 @@
 
 <?import javafx.scene.layout.AnchorPane?>
 
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.Label?>
-<AnchorPane prefHeight="317.0" prefWidth="422.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.faf.streaming.controllers.MainWindowController">
+<AnchorPane prefHeight="317.0" prefWidth="422.0" xmlns="http://javafx.com/javafx/8.0.111"
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.faf.streaming.controllers.MainWindowController">
     <children>
         <Label fx:id="lbStatus" layoutX="140.0" layoutY="62.0" textAlignment="CENTER" text="Welcome user" />
     </children>

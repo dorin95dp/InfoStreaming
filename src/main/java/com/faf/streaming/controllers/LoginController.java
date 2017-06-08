@@ -1,6 +1,5 @@
 package com.faf.streaming.controllers;
 
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -10,12 +9,7 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.util.concurrent.Executor;
 
-
-/**
- * Created by schiduvasile on 6/6/17.
- */
 public class LoginController {
     @FXML
     private TextField id;
@@ -24,13 +18,9 @@ public class LoginController {
     @FXML
     private Label lbStatus;
 
-    private final static int WIDTH = 422;
-    private final static int HEIGHT = 317;
+    public void login() throws Exception {
 
-
-    public void login(ActionEvent event) throws Exception {
-
-        if(id.getText().equals("user") && pass.getText().equals("password")) {
+        if (id.getText().equals("user") && pass.getText().equals("password")) {
             lbStatus.setText("Login Succesful!");
             switchScene();
 
@@ -41,10 +31,8 @@ public class LoginController {
     }
 
     private void switchScene() {
-        Stage stage;
+        Stage stage = (Stage) id.getScene().getWindow();
         Parent root = null;
-
-        stage = (Stage) id.getScene().getWindow();
 
         try {
             root = FXMLLoader.load(getClass().getResource("/mainView.fxml"));
@@ -52,10 +40,9 @@ public class LoginController {
             e.printStackTrace();
         }
 
-        Scene scene = new Scene(root, 800, 600);
+        Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
     }
-
 
 }
