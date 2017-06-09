@@ -16,10 +16,8 @@ public class MainWindowController {
     private ObservableList<String> chatHistory = FXCollections.observableArrayList ();
     @FXML
     public Label lbStatus;
-
     @FXML
     TextArea chat;
-
 
     public void checkUserInput(KeyEvent event) {
         if (event.getCode().toString().equals("ENTER")) {
@@ -29,5 +27,4 @@ public class MainWindowController {
             MessageSender.sendMessage(userInput, 1234);
         }
     }
-
 }

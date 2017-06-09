@@ -11,8 +11,8 @@
             onKeyPressed="#enterPressed" >
     <children>
         <TextField fx:id="id" layoutX="128.0" layoutY="109.0" promptText="Username" />
-        <Button layoutX="175.0" layoutY="204.0" mnemonicParsing="false" onAction="#login" text="Connect" />
         <PasswordField fx:id="pass" layoutX="128.0" layoutY="151.0" promptText="Password" />
+        <Button layoutX="175.0" layoutY="204.0" mnemonicParsing="false" onAction="#login" text="Connect" />
         <Label fx:id="lbStatus" layoutX="140.0" layoutY="62.0" textAlignment="CENTER" />
     </children>
 </AnchorPane>

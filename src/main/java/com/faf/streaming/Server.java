@@ -9,15 +9,16 @@ import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
 
-public class SampleServer extends Thread {
+public class Server extends Thread {
 
     private ServerSocket serverSocket;
     private Socket server;
     MessageReceiver messageReceiver = new MessageReceiver(1234);
+    int clientConnectionTime = 180000; //miliseconds
 
-    public SampleServer(int port) throws Exception {
+    public Server(int port) throws Exception {
         serverSocket = new ServerSocket(port);
-        serverSocket.setSoTimeout(180000);
+        serverSocket.setSoTimeout(clientConnectionTime);
     }
 
     public void run() {
@@ -29,7 +30,7 @@ public class SampleServer extends Thread {
                 server = serverSocket.accept();
                 handleConnection(server);
             } catch (IOException e) {
-                e.printStackTrace();
+                System.out.println(e.getMessage() + "\n\nClient didn't connect for" + clientConnectionTime + "minutes");
             }
         }
     }
@@ -38,7 +39,8 @@ public class SampleServer extends Thread {
         new Thread(() -> {
             try {
                 while (!server.isClosed()) {
-                    ImageIO.write(ScreenShotMaker.getINSTANCE().makeScreenShot().getImage(), "JPG", server.getOutputStream());
+                    ImageIO.write(ScreenShotMaker.getINSTANCE().makeScreenShot().getImage(),
+                            "JPG", server.getOutputStream());
                     try {
                         Thread.sleep(10);
                     } catch (InterruptedException e) {
@@ -67,7 +69,7 @@ public class SampleServer extends Thread {
     }
 
     public static void main(String [] args) throws Exception {
-        Thread t = new SampleServer(6789);
+        Thread t = new Server(6789);
         t.start();
     }
 }

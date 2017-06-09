@@ -19,11 +19,10 @@ public class LoginController {
         if (id.getText().equals("user") && pass.getText().equals("password")) {
             lbStatus.setText("Login Succesful!");
             switchScene();
-        } else{
+        } else {
             System.out.println("jora");
             lbStatus.setText("Login Failed! Try again");
         }
-
     }
 
     public void enterPressed (KeyEvent keyEvent) {
