@@ -2,13 +2,10 @@ package com.faf.streaming.controllers;
 
 import com.faf.streaming.views.MainView;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
-
-import java.io.IOException;
 
 public class LoginController {
     @FXML
@@ -28,6 +25,16 @@ public class LoginController {
             lbStatus.setText("Login Failed! Try again");
         }
 
+    }
+
+    public void enterPressed (KeyEvent keyEvent) {
+        if (keyEvent.getCode().toString().equals("ENTER")) {
+            try {
+                login();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
     }
 
     private void switchScene() {

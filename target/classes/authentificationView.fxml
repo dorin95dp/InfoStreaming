@@ -7,7 +7,8 @@
 <?import javafx.scene.layout.AnchorPane?>
 
 <AnchorPane prefHeight="317.0" prefWidth="422.0" xmlns="http://javafx.com/javafx/8.0.111"
-            xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.faf.streaming.controllers.LoginController">
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.faf.streaming.controllers.LoginController"
+            onKeyPressed="#enterPressed" >
     <children>
         <TextField fx:id="id" layoutX="128.0" layoutY="109.0" promptText="Username" />
         <Button layoutX="175.0" layoutY="204.0" mnemonicParsing="false" onAction="#login" text="Connect" />
