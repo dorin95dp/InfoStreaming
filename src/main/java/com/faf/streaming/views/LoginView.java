@@ -6,7 +6,6 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-
 public class LoginView extends Application{
 
     @Override
@@ -19,7 +18,6 @@ public class LoginView extends Application{
     }
 
     public static void main(String[] args) {
-
         launch(args);
     }
 }

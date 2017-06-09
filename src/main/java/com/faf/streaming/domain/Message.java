@@ -2,9 +2,6 @@ package com.faf.streaming.domain;
 
 import java.io.Serializable;
 
-/**
- * Created by schiduvasile on 6/8/17.
- */
 public class Message implements Serializable {
 
     private int length;

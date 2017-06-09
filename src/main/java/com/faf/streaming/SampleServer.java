@@ -1,6 +1,5 @@
 package com.faf.streaming;
 
-import com.faf.streaming.domain.Message;
 import com.faf.streaming.utils.MessageReceiver;
 import com.faf.streaming.utils.MessageSender;
 import com.faf.streaming.utils.ScreenShotMaker;

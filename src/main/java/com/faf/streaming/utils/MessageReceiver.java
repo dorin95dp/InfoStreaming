@@ -8,8 +8,6 @@ import java.net.SocketException;
 
 public class MessageReceiver {
 
-
-
     DatagramSocket datagramSocket = null;
     public MessageReceiver(int port) {
         try {

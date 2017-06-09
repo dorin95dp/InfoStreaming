@@ -31,17 +31,7 @@ public class LoginController {
     }
 
     private void switchScene() {
-
-
         Stage stage = (Stage) id.getScene().getWindow();
-        Parent root = null;
-
-        try {
-            root = FXMLLoader.load(getClass().getResource("/mainView.fxml"));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
 
         MainView mainView = new MainView();
         try {
