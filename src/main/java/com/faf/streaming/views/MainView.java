@@ -1,6 +1,6 @@
 package com.faf.streaming.views;
 
-import com.faf.streaming.Client;
+import com.faf.streaming.SampleClient;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -21,8 +21,8 @@ public class MainView extends Application {
         primaryStage.show();
         ListView listView = (ListView) scene.lookup("#chatView") ;
 
-        Client client = new Client((ImageView) scene.lookup("#boxImage"), listView);
-        client.start();
+        SampleClient sampleClient = new SampleClient((ImageView) scene.lookup("#boxImage"), listView);
+        sampleClient.start();
     }
 
     public static void main(String[] args) {

@@ -8,7 +8,7 @@ import javafx.scene.image.ImageView;
 import java.io.IOException;
 import java.net.Socket;
 
-public class Client extends Thread {
+public class SampleClient extends Thread {
 
     private Socket client;
     private static final String serverName = "localhost";
@@ -16,7 +16,7 @@ public class Client extends Thread {
     private ImageView imageView;
     private ListView listView;
 
-    public Client(ImageView imageView, ListView listView) {
+    public SampleClient(ImageView imageView, ListView listView) {
         this.imageView = imageView;
         this.listView = listView;
     }

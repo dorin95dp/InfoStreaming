@@ -9,14 +9,14 @@ import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
 
-public class Server extends Thread {
+public class SampleServer extends Thread {
 
     private ServerSocket serverSocket;
     private Socket server;
     MessageReceiver messageReceiver = new MessageReceiver(1234);
     int clientConnectionTime = 180000; //miliseconds
 
-    public Server(int port) throws Exception {
+    public SampleServer(int port) throws Exception {
         serverSocket = new ServerSocket(port);
         serverSocket.setSoTimeout(clientConnectionTime);
     }
@@ -30,7 +30,7 @@ public class Server extends Thread {
                 server = serverSocket.accept();
                 handleConnection(server);
             } catch (IOException e) {
-                System.out.println(e.getMessage() + "\n\nClient didn't connect for" + clientConnectionTime + "minutes");
+                System.out.println(e.getMessage() + "\n\nSampleClient didn't connect for" + clientConnectionTime + "minutes");
             }
         }
     }
@@ -49,7 +49,7 @@ public class Server extends Thread {
                 }
 
             } catch (IOException e) {
-                System.out.println(e.getMessage() + "\n\nClient switched off");
+                System.out.println(e.getMessage() + "\n\nSampleClient switched off");
             }
         }).start();
 
@@ -69,7 +69,7 @@ public class Server extends Thread {
     }
 
     public static void main(String [] args) throws Exception {
-        Thread t = new Server(6789);
+        Thread t = new SampleServer(6789);
         t.start();
     }
 }
