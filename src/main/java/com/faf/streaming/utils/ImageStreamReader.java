@@ -22,7 +22,6 @@ public class ImageStreamReader {
     private MessageReceiver messageReceiver = new MessageReceiver(1235);
     private ObservableList<String> chatHistory = FXCollections.observableArrayList ();
 
-
     public ImageStreamReader(InputStream inputStream, ListView listView) {
         this.stream = inputStream;
         this.listView = listView;
@@ -47,7 +46,6 @@ public class ImageStreamReader {
 
         while (!isStoppedReading) {
             stream.mark(MAX_IMAGE_SIZE);
-
             ImageInputStream imgStream = ImageIO.createImageInputStream(stream);
 
             Iterator<ImageReader> i = ImageIO.getImageReaders(imgStream);
@@ -68,6 +66,5 @@ public class ImageStreamReader {
             stream.reset();
             stream.skip(bytesRead);
         }
-
     }
 }

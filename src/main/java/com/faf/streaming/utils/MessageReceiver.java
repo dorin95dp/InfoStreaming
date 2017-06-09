@@ -1,6 +1,5 @@
 package com.faf.streaming.utils;
 
-
 import java.io.IOException;
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
@@ -21,10 +20,8 @@ public class MessageReceiver {
     public String receiveMessage() {
 
         try {
-
             byte[] buffer = new byte[100];
             DatagramPacket packet = new DatagramPacket(buffer, buffer.length);
-
             datagramSocket.receive(packet);
 
             return new String(buffer);
@@ -34,6 +31,4 @@ public class MessageReceiver {
 
         return null;
     }
-
 }
-
