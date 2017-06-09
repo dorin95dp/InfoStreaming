@@ -47,7 +47,7 @@ public class SampleServer extends Thread {
                 }
 
             } catch (IOException e) {
-                e.printStackTrace();
+                System.out.println(e.getMessage() + "\n\nClient switched off");
             }
         }).start();
 

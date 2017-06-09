@@ -34,7 +34,7 @@ public class SampleClient extends Thread {
 
             client.close();
         } catch(IOException e) {
-            e.printStackTrace();
+            System.out.println(e.getMessage());
         }
     }
 
