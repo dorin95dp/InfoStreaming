@@ -9,12 +9,10 @@ import javafx.scene.control.ListView;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 
-
 public class MainView extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-
         Parent root = FXMLLoader.load(getClass().getResource("/mainView.fxml"));
         Scene scene = new Scene(root);
         primaryStage.setTitle("Main window");

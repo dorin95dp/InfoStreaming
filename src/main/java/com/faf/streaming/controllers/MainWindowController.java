@@ -10,14 +10,10 @@ import javafx.scene.control.TextArea;
 import javafx.scene.input.KeyEvent;
 
 public class MainWindowController {
-
     @FXML
     public ListView chatView;
-
     private String userInput;
-
     private ObservableList<String> chatHistory = FXCollections.observableArrayList ();
-
     @FXML
     public Label lbStatus;
 

@@ -16,11 +16,9 @@ public class LoginController {
     private Label lbStatus;
 
     public void login() throws Exception {
-
         if (id.getText().equals("user") && pass.getText().equals("password")) {
             lbStatus.setText("Login Succesful!");
             switchScene();
-
         } else{
             System.out.println("jora");
             lbStatus.setText("Login Failed! Try again");
@@ -48,5 +46,4 @@ public class LoginController {
             e.printStackTrace();
         }
     }
-
 }

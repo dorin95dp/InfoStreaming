@@ -1,3 +1,5 @@
+// Starting point for the client application
+
 package com.faf.streaming.views;
 
 import javafx.application.Application;
