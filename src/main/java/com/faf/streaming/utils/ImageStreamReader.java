@@ -1,5 +1,6 @@
 package com.faf.streaming.utils;
 
+import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.control.ListView;
@@ -36,9 +37,11 @@ public class ImageStreamReader {
             while (!isStoppedReading){
                 String message = messageReceiver.receiveMessage();
                 message = message.replace("\0", "");
-                chatHistory.add(message);
-                listView.setItems(chatHistory);
-                System.out.println("asdas  " + message);
+                String finalMessage = message;
+                Platform.runLater(() -> {
+                    chatHistory.add(finalMessage);
+                    listView.setItems(chatHistory);
+                });
             }
         }).start();
 

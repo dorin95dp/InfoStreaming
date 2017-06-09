@@ -22,6 +22,7 @@ public class LoginController {
             switchScene();
 
         } else{
+            System.out.println("jora");
             lbStatus.setText("Login Failed! Try again");
         }
 
