@@ -7,12 +7,12 @@ import java.io.IOException;
 import java.net.Socket;
 import java.util.HashSet;
 
-public class UDPServer {
+public class ChatServer {
     private Socket server;
     private MessageReceiver messageReceiver;
     private HashSet<String> clientIps;
 
-    public UDPServer(Socket server, MessageReceiver messageReceiver, HashSet<String> clientIps) {
+    public ChatServer(Socket server, MessageReceiver messageReceiver, HashSet<String> clientIps) {
         this.server = server;
         this.messageReceiver = messageReceiver;
         this.clientIps = clientIps;

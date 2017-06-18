@@ -6,10 +6,10 @@ import javax.imageio.ImageIO;
 import java.io.IOException;
 import java.net.Socket;
 
-public class TCPServer {
+public class ScreenStreamingServer {
     private Socket server;
 
-    public TCPServer(Socket server) {
+    public ScreenStreamingServer(Socket server) {
         this.server = server;
     }
 
