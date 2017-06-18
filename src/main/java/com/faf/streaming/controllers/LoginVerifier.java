@@ -40,7 +40,7 @@ public class LoginVerifier {
         }
 
         String isLogged = result.toString();
-        System.out.println(isLogged);
+
         return isLogged.equals("true");
     }
 
