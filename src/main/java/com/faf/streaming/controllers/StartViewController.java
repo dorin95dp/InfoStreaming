@@ -3,6 +3,7 @@ package com.faf.streaming.controllers;
 import com.faf.streaming.models.User;
 import com.faf.streaming.utils.ServerConfigurations;
 import com.faf.streaming.views.MainView;
+import com.faf.streaming.views.RegisterView;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
@@ -43,7 +44,16 @@ public class StartViewController {
             }
         }
     }
+    public void changeSceneToRegister() {
+        Stage stage = (Stage) username.getScene().getWindow();
 
+        RegisterView registerView = new RegisterView();
+        try {
+            registerView.start(stage);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
     private void switchScene() {
         Stage stage = (Stage) username.getScene().getWindow();
 
