@@ -1,4 +1,4 @@
-// Starting point for the client application
+// Starting point for the client application - Login page
 
 package com.faf.streaming.views;
 
@@ -8,7 +8,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-public class LoginView extends Application {
+public class StartView extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {

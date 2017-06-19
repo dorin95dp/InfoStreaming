@@ -1,5 +1,6 @@
 package com.faf.streaming;
 
+import com.faf.streaming.controllers.StartViewController;
 import com.faf.streaming.utils.ImageStreamReader;
 import javafx.embed.swing.SwingFXUtils;
 import javafx.scene.control.ListView;
@@ -11,7 +12,7 @@ import java.net.Socket;
 public class SampleClient extends Thread {
 
     private Socket client;
-    private static final String serverName = "localhost";
+    private static final String serverName = StartViewController.serverConfig.getIp();
     private ImageStreamReader imageStreamReader;
     private ImageView imageView;
     private ListView listView;
