@@ -1,10 +1,10 @@
 package com.faf.streaming;
 
+import com.faf.streaming.models.TCPServer;
+import com.faf.streaming.models.UDPServer;
 import com.faf.streaming.utils.MessageReceiver;
 import com.faf.streaming.utils.MessageSender;
-import com.faf.streaming.utils.ScreenShotMaker;
 
-import javax.imageio.ImageIO;
 import java.io.IOException;
 import java.net.InetSocketAddress;
 import java.net.ServerSocket;
@@ -35,46 +35,18 @@ public class SampleServer extends Thread {
 
                 handleConnection(server);
             } catch (IOException e) {
-                System.out.println(e.getMessage() + "\n\nSampleClient didn't connect for" + clientConnectionTime + "minutes");
+                System.out.println(e.getMessage() +
+                        "\n\nSampleClient didn't connect for" + clientConnectionTime + "minutes");
             }
         }
     }
 
     private void handleConnection(Socket server) {
-        new Thread(() -> {
-            try {
-                while (!server.isClosed()) {
-                    ImageIO.write(ScreenShotMaker.getINSTANCE().makeScreenShot().getImage(),
-                            "JPG", server.getOutputStream());
-                    try {
-                        Thread.sleep(10);
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
-                }
+        TCPServer tcpServer = new TCPServer(server);
+        UDPServer udpServer = new UDPServer(server, messageReceiver, clientIps);
 
-            } catch (IOException e) {
-                System.out.println(e.getMessage() + "\n\nSampleClient switched off");
-            }
-        }).start();
-
-        new Thread(() -> {
-            while (!server.isClosed()){
-                try {
-                    server.getOutputStream().flush();
-                    String message = messageReceiver.receiveMessage();
-                    message = message.replace("\0", "");
-
-                    System.out.println(message);
-
-                    for (String clientIp : clientIps) {
-                        MessageSender.sendMessage(message, clientIp,1235);
-                    }
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
-        }).start();
+        tcpServer.handleStreaming();
+        udpServer.handleChat();
     }
 
     public static void main(String [] args) throws Exception {
