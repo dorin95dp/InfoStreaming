@@ -1,6 +1,5 @@
 package com.faf.streaming.controllers;
 
-import com.faf.streaming.models.LoginVerifier;
 import com.faf.streaming.models.User;
 import com.faf.streaming.utils.ServerConfigurations;
 import com.faf.streaming.views.MainView;

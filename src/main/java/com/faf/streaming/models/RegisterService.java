@@ -23,8 +23,8 @@ public class RegisterService {
 
         // Request parameters and other properties.
         List<NameValuePair> params = new ArrayList<NameValuePair>(2);
-        params.add(new BasicNameValuePair("username", user.username));
-        params.add(new BasicNameValuePair("password", user.password));
+        params.add(new BasicNameValuePair("username", user.getUsername()));
+        params.add(new BasicNameValuePair("password", user.getPassword()));
         httppost.setEntity(new UrlEncodedFormEntity(params, "UTF-8"));
 
         //Execute and get the response.
@@ -40,11 +40,9 @@ public class RegisterService {
 
         int isRegisterd = response.getStatusLine().getStatusCode();
         System.out.print(isRegisterd);
-        if (isRegisterd == 200) {
-            return true;
-        } else {
-            return false;
-        }
+
+        return isRegisterd == 200;
+
     }
 
 }

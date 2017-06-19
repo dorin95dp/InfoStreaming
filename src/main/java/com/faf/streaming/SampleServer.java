@@ -11,11 +11,10 @@ import java.net.ServerSocket;
 import java.net.Socket;
 
 public class SampleServer extends Thread {
-    private String clientIP;
+    private String clientIp;
     private ServerSocket serverSocket;
-    private Socket server;
-    MessageReceiver messageReceiver = new MessageReceiver(1234);
-    int clientConnectionTime = 180000; //miliseconds
+    private MessageReceiver messageReceiver = new MessageReceiver(1234);
+    private int clientConnectionTime = 180000; //miliseconds
 
     public SampleServer(int port) throws Exception {
         serverSocket = new ServerSocket(port);
@@ -28,10 +27,10 @@ public class SampleServer extends Thread {
 
         while (!isStopped) {
             try {
-                server = serverSocket.accept();
-                clientIP=(((InetSocketAddress) server.getRemoteSocketAddress()).getAddress()).toString().replace("/","");
+                Socket server = serverSocket.accept();
+                clientIp = (((InetSocketAddress) server.getRemoteSocketAddress()).getAddress()).toString().replace("/","");
 
-                System.out.println(clientIP);
+                System.out.println(clientIp);
                 handleConnection(server);
             } catch (IOException e) {
                 System.out.println(e.getMessage() + "\n\nSampleClient didn't connect for" + clientConnectionTime + "minutes");
@@ -64,7 +63,7 @@ public class SampleServer extends Thread {
                     String message = messageReceiver.receiveMessage();
                     message = message.replace("\0", "");
                     System.out.println(message);
-                    MessageSender.sendMessage(message, clientIP,1235);
+                    MessageSender.sendMessage(message, clientIp,1235);
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
