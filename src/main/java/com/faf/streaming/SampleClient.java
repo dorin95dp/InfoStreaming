@@ -11,7 +11,7 @@ import java.net.Socket;
 public class SampleClient extends Thread {
 
     private Socket client;
-    private static final String serverName = "localhost";
+    private static final String serverName = "172.31.204.46";
     private ImageStreamReader imageStreamReader;
     private ImageView imageView;
     private ListView listView;

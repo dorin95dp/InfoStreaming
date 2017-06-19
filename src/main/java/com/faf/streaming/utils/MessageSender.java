@@ -12,8 +12,7 @@ public class MessageSender {
             try {
                 DatagramSocket datagramSocket = new DatagramSocket();
                 byte[] buffer = message.getBytes();
-                InetAddress receiverAddress = InetAddress.getLocalHost();
-
+                InetAddress receiverAddress = InetAddress.getByName("172.31.204.46");
                 DatagramPacket packet = new DatagramPacket(buffer, buffer.length, receiverAddress, port);
                 datagramSocket.send(packet);
             } catch (IOException e) {
