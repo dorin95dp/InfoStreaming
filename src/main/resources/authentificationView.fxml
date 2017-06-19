@@ -13,6 +13,7 @@
         <Button layoutX="125.0" layoutY="204.0" mnemonicParsing="false" onAction="#login" text="Connect" />
         <Button layoutX="200.0" layoutY="204.0" mnemonicParsing="false" onAction="#changeSceneToRegister" text="Register" />
         <Label fx:id="lbStatus" layoutX="140.0" layoutY="62.0" textAlignment="CENTER" />
+
         <TextField fx:id="serverIp" layoutX="128.0" layoutY="59.0" promptText="Server IP" />
     </children>
 </AnchorPane>
