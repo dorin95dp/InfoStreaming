@@ -1,6 +1,6 @@
-package com.faf.streaming.models;
+package com.faf.streaming.controllers;
 
-
+import com.faf.streaming.models.User;
 import org.apache.http.HttpResponse;
 import org.apache.http.NameValuePair;
 import org.apache.http.client.HttpClient;
@@ -22,9 +22,10 @@ public class LoginVerifier {
         HttpPost httppost = new HttpPost("https://info-streaming.herokuapp.com/auth");
 
         // Request parameters and other properties.
-        List<NameValuePair> params = new ArrayList<NameValuePair>(2);
-        params.add(new BasicNameValuePair("username", user.username));
-        params.add(new BasicNameValuePair("password", user.password));
+        List<NameValuePair> params = new ArrayList<>(2);
+        params.add(new BasicNameValuePair("username", user.getUsername()));
+        params.add(new BasicNameValuePair("password", user.getPassword()));
+
         httppost.setEntity(new UrlEncodedFormEntity(params, "UTF-8"));
 
         //Execute and get the response.
