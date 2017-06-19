@@ -35,7 +35,18 @@ public class RegisterViewController {
 
     }
 
-    public void enterPressed (KeyEvent keyEvent) {
+    public void changeToLoginScene() throws Exception {
+        Stage stage = (Stage) username.getScene().getWindow();
+
+        StartView startView = new StartView();
+        try {
+            startView.start(stage);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void enterPressed(KeyEvent keyEvent) {
         if (keyEvent.getCode().toString().equals("ENTER")) {
             try {
                 register();
