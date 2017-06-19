@@ -15,6 +15,9 @@ import javafx.scene.input.KeyCode;
 public class MainWindowController {
     @FXML
     public ListView chatView;
+
+    private String userInput;
+    
     private ObservableList<String> chatHistory = FXCollections.observableArrayList ();
     @FXML
     public Label lbStatus;
@@ -25,9 +28,7 @@ public class MainWindowController {
         if (event.getCode().toString().equals("ENTER")) {
             String userInput = chat.getText();
             chat.clear();
-            Button backspace = new Button("Backspace");
-            KeyEvent press = new KeyEvent(backspace, chat, KeyEvent.KEY_PRESSED, "", "", KeyCode.BACK_SPACE, false, false, false, false);
-            chat.fireEvent(press);
+            chat.backward();
             chatHistory.add(userInput);
             MessageSender.sendMessage(userInput, StartViewController.serverConfig.getIp(),1234);
         }
