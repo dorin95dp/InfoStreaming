@@ -12,7 +12,9 @@
     <children>
         <TextField fx:id="username" layoutX="128.0" layoutY="109.0" promptText="Username" />
         <PasswordField fx:id="password" layoutX="128.0" layoutY="151.0" promptText="Password" />
-        <Button layoutX="175.0" layoutY="204.0" mnemonicParsing="false" onAction="#register" text="Register" />
+        <Button layoutX="200.0" layoutY="204.0" mnemonicParsing="false" onAction="#register" text="Register" />
+        <Button layoutX="125.0" layoutY="205.0" mnemonicParsing="false" onAction="#changeToLoginScene" text="Login" />
+
         <Label fx:id="lbStatus" layoutX="140.0" layoutY="62.0" textAlignment="CENTER" />
     </children>
 </AnchorPane>

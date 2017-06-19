@@ -10,9 +10,10 @@
             xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.faf.streaming.controllers.StartViewController"
             onKeyPressed="#enterPressed" >
     <children>
-        <TextField fx:id="nickname" layoutX="128.0" layoutY="109.0" promptText="Username" />
+        <TextField fx:id="username" layoutX="128.0" layoutY="109.0" promptText="Username" />
         <PasswordField fx:id="password" layoutX="128.0" layoutY="151.0" promptText="Password" />
-        <Button layoutX="175.0" layoutY="204.0" mnemonicParsing="false" onAction="#login" text="Connect" />
+        <Button layoutX="125.0" layoutY="204.0" mnemonicParsing="false" onAction="#login" text="Connect" />
+        <Button layoutX="200.0" layoutY="204.0" mnemonicParsing="false" onAction="#changeSceneToRegister" text="Register" />
         <Label fx:id="lbStatus" layoutX="140.0" layoutY="62.0" textAlignment="CENTER" />
     </children>
 </AnchorPane>
