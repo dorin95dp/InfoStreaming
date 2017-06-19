@@ -24,7 +24,7 @@ public class MainWindowController {
             userInput = chat.getText();
             chat.clear();
             chatHistory.add(userInput);
-            MessageSender.sendMessage(userInput, 1234);
+            MessageSender.sendMessage(userInput, StartViewController.serverConfig.getIp(),1234);
         }
     }
 }
