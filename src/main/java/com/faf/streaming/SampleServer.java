@@ -6,11 +6,12 @@ import com.faf.streaming.utils.ScreenShotMaker;
 
 import javax.imageio.ImageIO;
 import java.io.IOException;
+import java.net.InetSocketAddress;
 import java.net.ServerSocket;
 import java.net.Socket;
 
 public class SampleServer extends Thread {
-
+    private String clientIP;
     private ServerSocket serverSocket;
     private Socket server;
     MessageReceiver messageReceiver = new MessageReceiver(1234);
@@ -28,6 +29,9 @@ public class SampleServer extends Thread {
         while (!isStopped) {
             try {
                 server = serverSocket.accept();
+                clientIP=(((InetSocketAddress) server.getRemoteSocketAddress()).getAddress()).toString().replace("/","");
+
+                System.out.println(clientIP);
                 handleConnection(server);
             } catch (IOException e) {
                 System.out.println(e.getMessage() + "\n\nSampleClient didn't connect for" + clientConnectionTime + "minutes");
@@ -60,7 +64,7 @@ public class SampleServer extends Thread {
                     String message = messageReceiver.receiveMessage();
                     message = message.replace("\0", "");
                     System.out.println(message);
-                    MessageSender.sendMessage(message, 1235);
+                    MessageSender.sendMessage(message, clientIP,1235);
                 } catch (IOException e) {
                     e.printStackTrace();
                 }

@@ -2,6 +2,7 @@ package com.faf.streaming.controllers;
 
 import com.faf.streaming.models.LoginVerifier;
 import com.faf.streaming.models.User;
+import com.faf.streaming.utils.ServerConfigurations;
 import com.faf.streaming.views.MainView;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
@@ -9,7 +10,8 @@ import javafx.scene.control.TextField;
 import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
 
-public class LoginController {
+public class StartViewController {
+    public static ServerConfigurations serverConfig = ServerConfigurations.getInstance("localhost");
     private LoginVerifier loginVerifier = new LoginVerifier();
     private int id = 1;
 
