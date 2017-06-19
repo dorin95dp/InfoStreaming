@@ -9,14 +9,15 @@ import java.io.IOException;
 import java.net.InetSocketAddress;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.util.HashSet;
 
 public class SampleServer extends Thread {
-    private String clientIp;
+    private HashSet<String> clientIps = new HashSet<>();
     private ServerSocket serverSocket;
     private MessageReceiver messageReceiver = new MessageReceiver(1234);
     private int clientConnectionTime = 180000; //miliseconds
 
-    public SampleServer(int port) throws Exception {
+    private SampleServer(int port) throws Exception {
         serverSocket = new ServerSocket(port);
         serverSocket.setSoTimeout(clientConnectionTime);
     }
@@ -28,9 +29,10 @@ public class SampleServer extends Thread {
         while (!isStopped) {
             try {
                 Socket server = serverSocket.accept();
-                clientIp = (((InetSocketAddress) server.getRemoteSocketAddress()).getAddress()).toString().replace("/","");
+                String clientIp = (((InetSocketAddress)
+                        server.getRemoteSocketAddress()).getAddress()).toString().replace("/","");
+                clientIps.add(clientIp);
 
-                System.out.println(clientIp);
                 handleConnection(server);
             } catch (IOException e) {
                 System.out.println(e.getMessage() + "\n\nSampleClient didn't connect for" + clientConnectionTime + "minutes");
@@ -62,8 +64,12 @@ public class SampleServer extends Thread {
                     server.getOutputStream().flush();
                     String message = messageReceiver.receiveMessage();
                     message = message.replace("\0", "");
+
                     System.out.println(message);
-                    MessageSender.sendMessage(message, clientIp,1235);
+
+                    for (String clientIp : clientIps) {
+                        MessageSender.sendMessage(message, clientIp,1235);
+                    }
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
