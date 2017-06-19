@@ -1,18 +1,18 @@
 package com.faf.streaming.controllers;
 
-import com.faf.streaming.models.LoginVerifier;
+import com.faf.streaming.models.RegisterService;
 import com.faf.streaming.models.User;
 import com.faf.streaming.utils.ServerConfigurations;
-import com.faf.streaming.views.MainView;
+import com.faf.streaming.views.StartView;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
 
-public class StartViewController {
+public class RegisterViewController {
     public static ServerConfigurations serverConfig = ServerConfigurations.getInstance("localhost");
-    private LoginVerifier loginVerifier = new LoginVerifier();
+    private RegisterService registerService = new RegisterService();
     private int id = 1;
 
     @FXML
@@ -22,15 +22,15 @@ public class StartViewController {
     @FXML
     private Label lbStatus;
 
-    public void login() throws Exception {
+    public void register() throws Exception {
         User user = new User(id, username.getText(), password.getText());
 
-        if (loginVerifier.userExists(user)) {
-            lbStatus.setText("LoginVerifier Successful");
+        if (registerService.isUserRegisterd(user)) {
+            lbStatus.setText("Register Succesfully");
             id++;
             switchScene();
         } else {
-            lbStatus.setText("LoginVerifier Failed! Try again");
+            lbStatus.setText("Register Failed");
         }
 
     }
@@ -38,7 +38,7 @@ public class StartViewController {
     public void enterPressed (KeyEvent keyEvent) {
         if (keyEvent.getCode().toString().equals("ENTER")) {
             try {
-                login();
+                register();
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -48,9 +48,9 @@ public class StartViewController {
     private void switchScene() {
         Stage stage = (Stage) username.getScene().getWindow();
 
-        MainView mainView = new MainView();
+        StartView startView = new StartView();
         try {
-            mainView.start(stage);
+            startView.start(stage);
         } catch (Exception e) {
             e.printStackTrace();
         }

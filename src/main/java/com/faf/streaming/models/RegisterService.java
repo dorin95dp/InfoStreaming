@@ -15,11 +15,11 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 
-public class LoginVerifier {
+public class RegisterService {
 
-    public boolean userExists(User user) throws IOException {
+    public boolean isUserRegisterd(User user) throws IOException {
         HttpClient httpclient = HttpClients.createDefault();
-        HttpPost httppost = new HttpPost("https://info-streaming.herokuapp.com/auth");
+        HttpPost httppost = new HttpPost("https://info-streaming.herokuapp.com/register");
 
         // Request parameters and other properties.
         List<NameValuePair> params = new ArrayList<NameValuePair>(2);
@@ -38,9 +38,13 @@ public class LoginVerifier {
             result.append(line);
         }
 
-        String isLogged = result.toString();
-        System.out.println(isLogged);
-        return isLogged.equals("true");
+        int isRegisterd = response.getStatusLine().getStatusCode();
+        System.out.print(isRegisterd);
+        if (isRegisterd == 200) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
 }
