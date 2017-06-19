@@ -1,7 +1,5 @@
 package com.faf.streaming.utils;
 
-import com.faf.streaming.controllers.StartViewController;
-
 import java.io.IOException;
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
@@ -14,7 +12,6 @@ public class MessageSender {
             try {
                 DatagramSocket datagramSocket = new DatagramSocket();
                 byte[] buffer = message.getBytes();
-//                InetAddress receiverAddress = InetAddress.getByName(StartViewController.serverConfig.getIp());
 
                 InetAddress receiverAddress = InetAddress.getByName(receiverIp);
 

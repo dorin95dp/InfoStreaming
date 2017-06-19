@@ -2,14 +2,12 @@ package com.faf.streaming.models;
 
 public class User {
     int id;
-    String nickname;
+    String username;
     String password;
 
-    public User (int id, String nickname, String password) {
+    public User (int id, String username, String password) {
         this.id = id;
-        this.nickname = nickname;
+        this.username = username;
         this.password = password;
     }
-
-    public User() {}
 }
