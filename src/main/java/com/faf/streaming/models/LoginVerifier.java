@@ -39,12 +39,8 @@ public class LoginVerifier {
         }
 
         String isLogged = result.toString();
-        System.out.println(isLogged);
-        if (isLogged.equals("true")) {
-            return true;
-        } else {
-            return false;
-        }
+
+        return isLogged.equals("true");
     }
 
 }
