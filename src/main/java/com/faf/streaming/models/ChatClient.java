@@ -2,6 +2,8 @@ package com.faf.streaming.models;
 
 import com.faf.streaming.utils.MessageReceiver;
 import javafx.application.Platform;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.control.ListView;
@@ -18,6 +20,8 @@ public class ChatClient {
     public void handleConnection() {
         boolean isStoppedReading = false;
 
+
+
         new Thread(() -> {
             while (!isStoppedReading){
                 String message = messageReceiver.receiveMessage();
@@ -27,6 +31,9 @@ public class ChatClient {
                     chatHistory.add(finalMessage);
                     listView.setItems(chatHistory);
                 });
+
+
+
             }
         }).start();
 
