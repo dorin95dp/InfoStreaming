@@ -1,6 +1,7 @@
 package com.faf.streaming.controllers;
 
 import com.faf.streaming.models.User;
+import com.faf.streaming.models.UserSingleton;
 import com.faf.streaming.utils.ServerConfigurations;
 import com.faf.streaming.views.MainView;
 import com.faf.streaming.views.RegisterView;
@@ -31,6 +32,8 @@ public class StartViewController {
 
     public void login() throws Exception {
         User user = new User(id, username.getText(), password.getText());
+
+        UserSingleton.getINSTANCE().setUser(user);
 
         serverConfig = ServerConfigurations.getInstance(serverIp.getText());
 
