@@ -39,9 +39,7 @@ public class MainWindowController {
     public void checkUserInput(KeyEvent event) {
         if (event.getCode().toString().equals("ENTER")) {
             String userInput = chat.getText();
-
-
-
+            
             userInput = user.getUsername() + ": " + chat.getText();
 
             chat.clear();

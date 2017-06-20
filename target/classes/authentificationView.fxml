@@ -8,40 +8,12 @@
 
 <AnchorPane onKeyPressed="#enterPressed" prefHeight="317.0" prefWidth="422.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.faf.streaming.controllers.StartViewController">
     <children>
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
         <TextField fx:id="username" layoutX="128.0"  layoutY="109.0" promptText="Username" />
-=======
-<<<<<<< HEAD
-        <TextField fx:id="username" layoutX="128.0" layoutY="109.0" promptText="Username" />
->>>>>>> Refactor
         <PasswordField fx:id="password" layoutX="128.0" layoutY="151.0" promptText="Password" />
         <Button layoutX="125.0" layoutY="204.0" mnemonicParsing="false" onAction="#login" text="Connect" />
         <Button layoutX="200.0" layoutY="204.0" mnemonicParsing="false" onAction="#changeSceneToRegister" text="Register" />
         <Label fx:id="lbStatus" layoutX="140.0" layoutY="62.0" textAlignment="CENTER" />
-=======
-        <TextField fx:id="username" layoutX="128.0" layoutY="129.0" promptText="Username" />
-        <PasswordField fx:id="password" layoutX="128.0" layoutY="171.0" promptText="Password" />
-        <Button fx:id="connect" layoutX="175.0" layoutY="224.0" mnemonicParsing="false" onAction="#login" text="Connect" />
-<<<<<<< HEAD
-        <Label fx:id="lbStatus" layoutX="140.0" layoutY="100.0" textAlignment="CENTER" />
->>>>>>> resolved commit
-=======
->>>>>>> Added Server IP Text field in Main view
-        <Label fx:id="lbStatus" layoutX="140.0" layoutY="62.0" textAlignment="CENTER" />
-=======
-=======
->>>>>>> Diplay usernam
-        <TextField fx:id="username" layoutX="128.0" layoutY="129.0" promptText="Username" />
-        <PasswordField fx:id="password" layoutX="128.0" layoutY="171.0" promptText="Password" />
-        <Button fx:id="connect" layoutX="175.0" layoutY="224.0" mnemonicParsing="false" onAction="#login" text="Connect" />
-        <Label fx:id="lbStatus" layoutX="140.0" layoutY="100.0" textAlignment="CENTER" />
-<<<<<<< HEAD
->>>>>>> Refactor
->>>>>>> Refactor
-=======
->>>>>>> Diplay usernam
+
         <TextField fx:id="serverIp" layoutX="128.0" layoutY="59.0" promptText="Server IP" />
     </children>
 </AnchorPane>

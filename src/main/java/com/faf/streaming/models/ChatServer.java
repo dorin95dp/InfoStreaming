@@ -25,6 +25,7 @@ public class ChatServer {
                     server.getOutputStream().flush();
                     String message = messageReceiver.receiveMessage();
                     message = message.replace("\0", "");
+                    message = message.replace("\n", "");
 
                     System.out.println(message);
 
