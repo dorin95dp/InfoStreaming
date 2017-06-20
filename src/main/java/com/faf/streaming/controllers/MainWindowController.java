@@ -40,9 +40,7 @@ public class MainWindowController {
         if (event.getCode().toString().equals("ENTER")) {
             String userInput = chat.getText();
 
-//            Text text = new Text();
-//            text.setFont(Font.font("verdana", FontWeight.BOLD, FontPosture.REGULAR, 20));
-//            text.setText(user.getUsername().toString());
+
 
             userInput = user.getUsername() + ": " + chat.getText();
 
