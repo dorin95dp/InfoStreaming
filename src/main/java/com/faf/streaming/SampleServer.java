@@ -1,9 +1,8 @@
 package com.faf.streaming;
 
-import com.faf.streaming.models.TCPServer;
-import com.faf.streaming.models.UDPServer;
+import com.faf.streaming.models.ScreenStreamingServer;
+import com.faf.streaming.models.ChatServer;
 import com.faf.streaming.utils.MessageReceiver;
-import com.faf.streaming.utils.MessageSender;
 
 import java.io.IOException;
 import java.net.InetSocketAddress;
@@ -42,11 +41,11 @@ public class SampleServer extends Thread {
     }
 
     private void handleConnection(Socket server) {
-        TCPServer tcpServer = new TCPServer(server);
-        UDPServer udpServer = new UDPServer(server, messageReceiver, clientIps);
+        ScreenStreamingServer screenStreamingServer = new ScreenStreamingServer(server);
+        ChatServer chatServer = new ChatServer(server, messageReceiver, clientIps);
 
-        tcpServer.handleStreaming();
-        udpServer.handleChat();
+        screenStreamingServer.handleStreaming();
+        chatServer.handleChat();
     }
 
     public static void main(String [] args) throws Exception {

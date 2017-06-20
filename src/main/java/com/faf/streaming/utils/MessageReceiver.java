@@ -6,8 +6,8 @@ import java.net.DatagramSocket;
 import java.net.SocketException;
 
 public class MessageReceiver {
+    private  DatagramSocket datagramSocket = null;
 
-    DatagramSocket datagramSocket = null;
     public MessageReceiver(int port) {
         try {
             datagramSocket = new DatagramSocket(port);
@@ -18,7 +18,6 @@ public class MessageReceiver {
     }
 
     public String receiveMessage() {
-
         try {
             byte[] buffer = new byte[100];
             DatagramPacket packet = new DatagramPacket(buffer, buffer.length);
