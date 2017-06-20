@@ -19,6 +19,7 @@ public class MainView extends Application {
         primaryStage.setScene(scene);
         primaryStage.centerOnScreen();
         primaryStage.show();
+
         ListView listView = (ListView) scene.lookup("#chatView") ;
 
         SampleClient sampleClient = new SampleClient((ImageView) scene.lookup("#boxImage"), listView);

@@ -12,16 +12,15 @@ import javafx.scene.input.KeyEvent;
 public class MainWindowController {
     @FXML
     public ListView chatView;
-    private String userInput;
     private ObservableList<String> chatHistory = FXCollections.observableArrayList ();
     @FXML
     public Label lbStatus;
     @FXML
-    TextArea chat;
+    private TextArea chat;
 
     public void checkUserInput(KeyEvent event) {
         if (event.getCode().toString().equals("ENTER")) {
-            userInput = chat.getText();
+            String userInput = chat.getText();
             chat.clear();
             chatHistory.add(userInput);
             MessageSender.sendMessage(userInput, StartViewController.serverConfig.getIp(),1234);
