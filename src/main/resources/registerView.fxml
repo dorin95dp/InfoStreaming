@@ -6,14 +6,12 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="317.0" prefWidth="422.0" xmlns="http://javafx.com/javafx/8.0.111"
-            xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.faf.streaming.controllers.RegisterViewController"
-            onKeyPressed="#enterPressed" >
+<AnchorPane onKeyPressed="#enterPressed" prefHeight="317.0" prefWidth="422.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.faf.streaming.controllers.RegisterViewController">
     <children>
         <TextField fx:id="username" layoutX="128.0" layoutY="109.0" promptText="Username" />
         <PasswordField fx:id="password" layoutX="128.0" layoutY="151.0" promptText="Password" />
-        <Button layoutX="200.0" layoutY="204.0" mnemonicParsing="false" onAction="#register" text="Register" />
-        <Button layoutX="125.0" layoutY="205.0" mnemonicParsing="false" onAction="#changeToLoginScene" text="Login" />
+        <Button layoutX="212.0" layoutY="205.0" mnemonicParsing="false" onAction="#register" text="Register" />
+        <Button layoutX="155.0" layoutY="205.0" mnemonicParsing="false" onAction="#changeToLoginScene" text="Login" />
 
         <Label fx:id="lbStatus" layoutX="140.0" layoutY="62.0" textAlignment="CENTER" />
     </children>
