@@ -34,8 +34,8 @@ public class SampleClient extends Thread {
             });
 
             client.close();
-        } catch(IOException e) {
-            System.out.println(e.getMessage());
+        } catch(Exception e) {
+            //
         }
     }
 }

@@ -1,19 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.TextArea?>
-<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="600.0" prefWidth="1318.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.faf.streaming.controllers.MainWindowController">
+<AnchorPane maxWidth="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="301.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.faf.streaming.controllers.MainWindowController">
     <children>
-        <Label fx:id="lbStatus" layoutX="140.0" layoutY="62.0" text="Welcome user" textAlignment="CENTER" />
-        <ImageView fx:id="boxImage" fitHeight="600.0" fitWidth="1029.0" pickOnBounds="true" preserveRatio="true" />
-        <ListView fx:id="chatView" layoutX="1048.0" layoutY="41.0" prefHeight="441.0" prefWidth="248.0" />
-        <TextArea fx:id="chat" layoutX="1049.0" layoutY="516.0" onKeyPressed="#checkUserInput" prefHeight="50.0" prefWidth="248.0" />
-      <Text layoutX="1050.0" layoutY="508.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Chat" wrappingWidth="93.99999213218689" />
-      <Text layoutX="1049.0" layoutY="32.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Chat history" wrappingWidth="124.6708984375" />
+        <ListView fx:id="chatView" layoutX="26.0" layoutY="46.0" prefHeight="441.0" prefWidth="248.0" />
+        <TextArea fx:id="chat" layoutX="26.0" layoutY="519.0" onKeyPressed="#checkUserInput" prefHeight="50.0" prefWidth="248.0" />
+      <Text layoutX="26.0" layoutY="508.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Chat" wrappingWidth="93.99999213218689" />
+      <Text layoutX="26.0" layoutY="36.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Chat history" wrappingWidth="124.6708984375" />
     </children>
 </AnchorPane>
